@@ -55,7 +55,7 @@ app.post("/order", async (req, res) => {
             merchantUserId: req.body.MUID,
             name: req.body.name,
             amount: req.body.amount * 100,
-            redirectUrl: `http://localhost:8000/status/?id=${merchantTransactionId}`,
+            redirectUrl: `https://leetcode.com/problemset/`,
             redirectMode: 'POST',
             mobileNumber: req.body.number,
             paymentInstrument: {
@@ -129,10 +129,10 @@ app.post("/status", async (req, res) => {
     // CHECK PAYMENT TATUS
     axios.request(options).then(async (response) => {
             if (response.data.success === true) {
-                const url = `http://localhost:3000/success`
+                const url = `https://leetcode.com/problemset/`
                 return res.redirect(url)
             } else {
-                const url = `http://localhost:3000/failure`
+                const url = `https://leetcode.com/problemset/`
                 return res.redirect(url)
             }
         })
